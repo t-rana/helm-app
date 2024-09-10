@@ -3,7 +3,7 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-09-10T16:49:08.631941+05:30"
+    created: "2024-09-10T16:55:43.183291+05:30"
     description: A Helm chart for any application
     digest: 4162743b06e3f8386f53569df6db3e6cbf0e122751c9d649993b8fd9ac9d72cb
     home: https://github.com/wkrzywiec/k8s-helm-helmfile/tree/master/helm
@@ -20,4 +20,4 @@ entries:
     urls:
     - https://t-rana.github.io/helm-app/app-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-10T16:49:08.630738+05:30"
+generated: "2024-09-10T16:55:43.182124+05:30"
