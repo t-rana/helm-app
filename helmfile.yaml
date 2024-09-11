@@ -1,0 +1,46 @@
+helmDefaults:
+  wait: true
+  timeout: 600
+
+repositories:
+  - name: helm-app
+    url: https://wkrzywiec.github.io/helm-app
+
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+
+releases:
+  - name: kanban-frontend
+    chart: ./app
+    namespace: kanban
+    values:
+      - kanban-frontend.yaml
+      - values.yaml.gotmpl
+
+  - name: kanban-backend
+    chart: helm-app/app
+    namespace: kanban
+    version: '0.1.1'
+    values:
+      - kanban-backend.yaml
+      - values.yaml.gotmpl
+
+  - name: postgres
+    chart: bitnami/postgresql
+    namespace: kanban
+    installed: {{ eq .Environment.Name "default" | toYaml }}
+    values:
+      - postgres.yaml
+
+environments:
+  default:
+    kubeContext: kind-kind
+    values:
+      - dev.yaml
+
+  production:
+    kubeContext: gke_kanban-377_europe-central2_kanban-cluster
+    values:
+      - production.yaml
+    missingFileHandler: Error
+

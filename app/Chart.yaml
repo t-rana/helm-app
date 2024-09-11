@@ -13,3 +13,8 @@ home: https://github.com/wkrzywiec/k8s-helm-helmfile/tree/master/helm
 maintainers:
   - name: John Doe
     url: https://github.com/wkrzywiec
+dependencies:
+  - name: postgresql
+    version: 12.1.6
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: database.enabled
